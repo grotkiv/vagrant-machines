@@ -92,8 +92,11 @@ Vagrant.configure("2") do |config|
      apt-get upgrade -y
      apt-get install -y linux-headers-generic
      apt-get install -y xinit x11-xserver-utils lxterminal openbox slim
-     apt-get install -y build-essential vim-gtk git gitk mutt dillo
+     apt-get install -y build-essential vim-gtk git gitk mutt dillo mupdf
      apt-get install -y libncurses5-dev gcc-arm-linux-gnueabihf bc lzop
+     echo "default_user        marcel" >> /etc/slim.conf
+     echo "auto_login          yes"    >> /etc/slim.conf
+     echo "x-terminal-emulator &"      >> /etc/xdg/openbox/autostart
      mount /dev/cdrom /mnt
      yes | /mnt/VBoxLinuxAdditions.run
      if ! [ -e /dev/sdb1 ]; then
